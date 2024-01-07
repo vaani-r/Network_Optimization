@@ -22,3 +22,34 @@ Each node can receive at most one sensor. You will be given a detection matrix, 
 {0, 1}|E|×|V|, that represents the sensing capabilities of the pressure sensors. F is a binary matrix
 of size |E| × |V| = 1123 × 811, and is such that fe,v = 1 if a sensor placed at location v ∈ V can
 detect a burst of pipe e ∈ E.
+
+## Problem 1
+Problem Statement: Identify the minimum number of sensors and their locations to ensure that if a pipe bursts, at least one sensor will detect it.
+
+- <img src="https://latex.codecogs.com/gif.latex?\textbf{Decision Variable:} \\
+For this part we will define the following binary variable
+
+\[
+x_v = \begin{cases} 
+1 & \text{if a sensor is placed on node position $v$} \\
+0 & \text{otherwise}
+\end{cases}
+\]>
+
+\textbf{Objective Function:} \\
+We are minimizing the number of sensors to use which will ensure that a pipe burst in any of the pipes will not go undetected.
+
+\[
+\min \sum_{v=1}^{811}  x_v
+\]
+\textbf{Constraints:} \\
+We have two sets of constraints. Firstly, we need to have atleast one sensor in each pipe that is placed at a node capable of detecting a burst (i.e) $F_{ev} = 1$. Secondly, each node can have either $1$ or $0$ sensor.
+
+\begin{flalign*}
+&& \text{s.t. } \sum_{v=1}^{811} F_{ev}x_v && \forall e \in E &
+\end{flalign*}
+
+\begin{flalign*}
+&& \text{s.t. } \ x_v \in \left\{0,1\right\} && \forall v \in V &
+\end{flalign*}
+
