@@ -26,9 +26,9 @@ detect a burst of pipe e ∈ E.
 ## Problem 1
 Problem Statement: Identify the minimum number of sensors and their locations to ensure that if a pipe bursts, at least one sensor will detect it.
 
-$$\textbf{Decision Variable:} \\
+$$\textbf{Decision Variable:} \\$$
 For this part we will define the following binary variable
-\[
+$$\[
 x_v = \begin{cases} 
 1 & \text{if a sensor is placed on node position $v$} \\
 0 & \text{otherwise}
