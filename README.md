@@ -130,5 +130,71 @@ Comparison of Solutions:
 
 ![image](https://github.com/vaani-r/Network_Optimization/assets/76833593/429c80c0-64b1-459d-a4ea-694088c90f31)
 
+## Problem 4
+Problem Statement: Identify the position of b sensors to minimize the highest criticality of a pipe that is not detected by any sensor.
 
+Decision Variable:
+
+$$
+x_v = \begin{cases} 
+1 & \text{if a sensor is placed on node position $v$} \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+$$
+z_e = \begin{cases} 
+1 & \text{if pipe burst is detected in pipe $e$} \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+$w_e$ is a continuous variable that ranges between [0, 1]. The higher $w_e$ is, the more critical pipe $e$ is.
+
+Objective Function:
+
+$$
+\begin{flalign*}
+&& \ min max w_e(1- z_e) && \forall e \in E &
+\end{flalign*}
+$$
+
+Let's represent $max$ $w_e(1- z_e)$ as $k$. The linearized objective function would be:
+<p align="center">
+$min$ $k$
+</p>
+
+Constraints:
+
+$$
+\begin{flalign*}
+&& \ k \geq w_e(1-z_e) && \forall e \in E &
+\end{flalign*}
+$$
+
+$$
+\begin{flalign*}
+&& \ z_e \leq \sum_{v=1}^{811} F_{e,v} z_e && \forall e \in E &
+\end{flalign*}
+$$
+
+$$
+\begin{flalign*}
+&& \ z_e \leq \sum_{v=1}^{811} F_{e,v} z_e && \forall e \in E &
+\end{flalign*}
+$$
+
+$$\sum_{v=1}^{v=811} x_v \leq b$$
+
+$$
+\begin{flalign*}
+&& \text{s.t. } \ x_v \in \{0,1\} && \forall v \in V &
+\end{flalign*}
+$$
+
+$$
+\begin{flalign*}
+&& \text{s.t. } \ z_e \in \{0,1\} && \forall e \in E &
+\end{flalign*}\\
+$$
 
