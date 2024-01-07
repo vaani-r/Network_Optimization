@@ -105,3 +105,30 @@ $$
 \end{flalign*}
 $$
 
+Answer: We need atleast 19 sensors to detect all 1123 pipes in case of a burst. 
+![image](https://github.com/vaani-r/Network_Optimization/assets/76833593/03fa03d8-882f-43e8-b168-269ab8fffd9e)
+
+
+## Problem 3
+Problem Statement: For a faster solution, sequentially and myopically select sensor locations. Code this algorithm and compare solutions.
+
+Algorithm:
+Step 1 – Select node which detects the maximum expected number of pipe bursts. Place sensor at the selected node.
+Step 2 – Remove all pipes that have been detected through the above sensor placement
+Step 3 – If all pipes are detected or the number of sensors have run out, stop. Otherwise, repeat Step 1 and Step 2
+
+Solution: 
+When plotting the optimal value against the number of sensors, we see that at 20 sensors, the expected number of pipe bursts that are detected is lesser than the total number of pipes - 1123. 
+
+![image](https://github.com/vaani-r/Network_Optimization/assets/76833593/6420462e-8000-4fac-9dc9-fcc466edc03d)
+
+The time taken to run the algorithm is less than 1 second. 
+
+Comparison of Solutions:
+- Time Taken: IP takes ~5 minutes while the Sequential solution takes less than a second
+- Optimal Solution: IP states that atleast 19 sensors are required to detect all pipe bursts. The Sequential solution states that more than 20 sensors are required to detect all pipe bursts.
+
+![image](https://github.com/vaani-r/Network_Optimization/assets/76833593/429c80c0-64b1-459d-a4ea-694088c90f31)
+
+
+
