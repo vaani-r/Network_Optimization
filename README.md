@@ -198,3 +198,8 @@ $$
 \end{flalign*}\\
 $$
 
+Answer: After 19 sensors, the highest criticality of a pipe not detected by a sensor is 0, which means that all pipes with criticality > 0 are detected.
+
+![image](https://github.com/vaani-r/Network_Optimization/assets/76833593/40a2af9f-4d54-47a3-876f-fb37812775f1)
+
+
