@@ -53,3 +53,55 @@ $$\begin{flalign*}
 
 Answer: 
 By solving the problem computationally, we see that the minimum number of sensors would be 19. 
+
+## Problem 2
+Problem Statement: Identify the location of $b$ sensors that maximizes the expected number of pipe bursts that are detected
+
+Decision Variable:
+
+$$
+x_v = \begin{cases} 
+1 & \text{if a sensor is placed on node position $v$} \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+$$
+z_e = \begin{cases} 
+1 & \text{if pipe burst is detected in pipe $e$} \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+$z_e$ is a binary variable that states if pipe e's burst will be detected.
+
+Objective Function:
+$$max \sum_{e=1}^{1123} 0.1z_e$$ 
+
+Constraints:
+There will be fours constraints for this problem. The first constraint ensures that $z_e$ is $0$ if a pipe burst in pipe $e$ is not detected by any of the $b$ sensors. The constraint forces $z_e$ to be $0$ if the sum of all the products of $F_{ev}$'s and respective $x_v$'s is $0$ for each pipe $e$. If this sum is not $0$, it means that a burst in pipe $e$ can be detected in which case $z_e$ is unrestricted. The second constraint makes sure that we do not use more than $b$ sensors. The third and fourth constraints are binary constraints for the variables $z_e$ and $x_v$
+
+$$
+\begin{flalign*}
+&& \text{s.t. } z_e \leq \sum_{v=1}^{811} F_{ev} x_v && \forall e \in E &
+\end{flalign*}
+$$
+
+$$
+\begin{flalign*}
+&& \text{s.t. } \sum_{v=1}^{811} x_v \leq b && &
+\end{flalign*}
+$$
+
+$$
+\begin{flalign*}
+&& \text{s.t. } \ x_v \in \{0,1\} && \forall v \in V &
+\end{flalign*}
+$$
+
+$$
+\begin{flalign*}
+&& \text{s.t. } \ z_e \in \{0,1\} && \forall e \in E &
+\end{flalign*}
+$$
+
